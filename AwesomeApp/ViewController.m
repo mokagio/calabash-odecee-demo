@@ -1,11 +1,3 @@
-//
-//  ViewController.m
-//  AwesomeApp
-//
-//  Created by Giovanni Lodi on 15/02/2015.
-//  Copyright (c) 2015 mokagio. All rights reserved.
-//
-
 #import "ViewController.h"
 
 @interface ViewController ()
@@ -14,14 +6,20 @@
 
 @implementation ViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+- (IBAction)awesomeButtonTouched:(id)sender {
+    [self makeSomethingAwesomeHappen];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+#pragma mark -
 
+- (void)makeSomethingAwesomeHappen {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"AWESOME"
+                                                                             message:@"Everything is awesome!"
+                                                                      preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"Awesome!"
+                                                       style:UIAlertActionStyleDefault
+                                                     handler:^(UIAlertAction *action) {}]];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
+}
 @end
